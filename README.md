@@ -1,6 +1,6 @@
 # High level solution design 
 
-![High level solution design](https://github.com/MahiSharew/PayPay/blob/master/mahlet%20design.jpg)
+![High level solution design](https://github.com/MahiSharew/PayPay/blob/master/solutionDesign%20.jpg)
 > High level solution design 
 
 ---
@@ -20,7 +20,9 @@ I will use to build this Solution, as well as the overall data flow processes.
 - Dynamodb DAX(in-memory cache for high performance improvement)
 - Amazon CloudFront(for improving access speed)
 
-  I  will explain two architecture approach one is for real time architecture , which use green arrow in the diagram and  other one is to  reprocess historical data  or long term analytic data  show on red arrow in the diagram . 
+```html
+ I  will explain two architecture approaches the first one is for real-time architecture that provides metrics to customers with at most one hour delay. Green arrow used to display the data flow in the system design diagram.  and the second one is for reprocessing historical data in case of bugs. Data flow is a draw using a red arrow in the system design diagram. 
+```
 
 ## Real-time component  of architecture 
 ```html
