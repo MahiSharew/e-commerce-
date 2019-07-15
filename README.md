@@ -42,9 +42,6 @@ Local consult clients will register the new microservices with the consul server
 - we provide dashboard creating  in CloudWatch using the same   technology that  we used to receive a request from the customer  as you see from digram (microservices, HAProxy  and consult)
 - I use CDN services for fast content delivery.  when the user requests content he user is routed to the edge location that provides the lowest latency so that content is delivered with the best possible performance. If the content is already in the edge location with the lowest latency, CloudFront delivers it immediately.
 
-
-[Back To The Top](#read-me-template)
-
 ---
 ## Reprocessing historical data component  of architecture 
 #### Description     
