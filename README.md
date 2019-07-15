@@ -46,16 +46,15 @@ Local consult clients will register the new microservices with the consul server
 [Back To The Top](#read-me-template)
 
 ---
-
 ## Reprocessing historical data component  of architecture 
+#### Description     
 
-It will have same component and  architecture   till the data reach the Kafaka Apache
-
--once the data reach Kafaka  , then we can use lambda function to do batch reading  and store the batches  into Dynamobdb .
-Since I choose to use DynamoDB on-demand , we can serve thousand of request per second  and 
-we only pay  for what we use (pay-per-request). 
--I add Dynamodb DAX in-memory cache to make reading and writing even more faster ,microservece will read data from DAx if the data already cache , if not we are going to have cache penalty (write the  data first into DAX and send the data to microservece)
--Mciroservce  will get the data from DAX and build the dashobareod and the send the  data to HAPoxy  the process will contain like this in reversed order . 
+- It will have the same component and  architecture until the data reach the Kafka Apache
+- once the data reach Kafka, then we can use a lambda function to do a batch reading and store the batches into Dynamobdb.
+-  Since I choose to use DynamoDB on-demand, we can serve thousands of requests per second and we only pay for what we use (pay-per-request). 
+-  I add Dynamodb DAX in-memory cache to make reading and writing, even more, faster, microservece will read data from DAX if the data already cache, if not we are going to have cache penalty (write the  data first into DAX and send the data to microservice)
+-  Microservices will get the data from DAX and build the dashboard 
+- I use CDN services for fast content delivery.  when the user requests content he user is routed to the edge location that provides the lowest latency so that content is delivered with the best possible performance. If the content is already in the edge location with the lowest latency, CloudFront delivers it immediately. 
 ---
 
 ## References
