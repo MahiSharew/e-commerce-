@@ -31,7 +31,7 @@ Data flow is a draw using a red arrow in the system design diagram.
 ## Real-time component of architecture 
 
 #### Description     
--the system received a number of requests from a number of users, each request connects to the HAProxy instance, which will use a reverse proxy to forward the request (XHR REQUEST) to one of available microservices endpoints.
+- the system received a number of requests from a number of users, each request connects to the HAProxy instance, which will use a reverse proxy to forward the request (XHR REQUEST) to one of available microservices endpoints.
 -Autoscaling group to deal with the load as it deploys an appropriate number of containers across the available pool of resources. Adding or removing microservice(tasks) with a service based on the number of requests received. 
 Local consult clients will register the new microservices with the consul server and notify the HAProxy of the new add container. A combination of HAProxy and Consul provides a reliable solution for discovering services and routing requests across our infrastructure.
 HAProxy  connect to Træfɪk  load balancer , it will be best suit for  this application since it support docker and Consul as backends. Taefik requests to right microservices based on request that coming from HAProxy (read / write / number people who visa my website ) .
