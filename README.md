@@ -22,20 +22,25 @@ I will use to build this Solution, as well as the overall data flow processes.
 ---
 ```html 
     I  will explain two architecture approaches 
-1. Real-time architecture that provides metrics to customers with at most one hour delay. Green arrow used to display the data flow in the system design diagram.  
-2. For reprocessing historical data in case of bugs. Data flow is a draw using a red arrow in the system design diagram. 
+1. Real-time architecture that provides metrics to customers with at most one hour delay. 
+Green arrow used to display the data flow in the system design diagram.  
+2. For reprocessing historical data in case of bugs. 
+Data flow is a draw using a red arrow in the system design diagram. 
 ```
 ---
 ## Real-time component of architecture 
 
 ####     
-- We start with getting   large number of request from  number  customer  (data producer ).The client  will connect to an HAProxy instance , which will use a reverse proxy to forward the request (XHR REQUEST) to one of available microservices  endpoints .
-- when  number of request  increase   autoscaling group  will launch new  docker container (microservices).
-- Local consult client will register the new  microservices with the consul server and  notify the HAProxy   the new  add  container . Combination of  HAProxy  and Consul provide a reliable solution for discovering services and routing requests across the infrastructure .
-- HAProxy(customer ) will connect to Træfɪk  load balancer , it will be best suit for  this application since it support docker and Consul as backends. Taefik requests to right microservices based on request that coming from HAProxy (read / write / number people who visa my website ) .
-- Docker Containers (microservices)  responsible for  preprocessing and filtering  data and send to Apache Kafka (we can also use amazon kenisis data streams  ).
-- once  data reach  Apache Kafka,  we can use lambda function to damp the even to CloudWatch . 
-We can use cloudewatch to visualized and build real time dashboard 
+the system received a number of requests from a number of users, each request connects to the HAProxy instance, which will use a reverse proxy to forward the request (XHR REQUEST) to one of available microservices endpoints.
+Autoscaling group to deal with the load as it deploys an appropriate number of containers across the available pool of resources. Adding or removing microservice(tasks) with a service based on the number of requests received. 
+Local consult clients will register the new microservices with the consul server and notify the HAProxy of the new add container. A combination of HAProxy and Consul provides a reliable solution for discovering services and routing requests across our infrastructure.
+HAProxy  connect to Træfɪk  load balancer , it will be best suit for  this application since it support docker and Consul as backends. Taefik requests to right microservices based on request that coming from HAProxy (read / write / number people who visa my website ) .
+Docker Containers (microservices)  responsible for preprocessing and filtering data and send data to  Apache Kafka (we can also use amazon kinesis data streams  ).
+since Kafka can ingest more than  1 billion events a day, which makes it the perfect suit for this application. In addition to that, all messages written to Kafka are persisted and replicated to peer brokers for fault tolerance, and those messages stay around for a configurable period of time.
+once data reach  Apache Kafka,  we can use a lambda function to process the data and damp the even to CloudWatch. 
+I choose cloudwatch to visualized and build a real-time dashboard. this enables us to publish and store metrics. We are even able to see data points with a period of fewer than 1 minute if we choose high-resolution custom metrics.
+we provide dashboard creating  in CloudWatch using the same   technology that  we used to receive a request from the customer  as you see from digram (microservices, HAProxy  and consult)
+I use CDN services for fast content delivery.  when the user requests content he user is routed to the edge location that provides the lowest latency so that content is delivered with the best possible performance. If the content is already in the edge location with the lowest latency, CloudFront delivers it immediately.
 
 
 [Back To The Top](#read-me-template)
