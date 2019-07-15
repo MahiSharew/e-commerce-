@@ -22,14 +22,14 @@ I will use to build this Solution, as well as the overall data flow processes.
 ---
 ```html 
     I  will explain two architecture approaches :
-    -the first one is for real-time architecture that provides metrics to customers with at most one hour delay.
-    Green arrow used to display the data flow in the system design diagram.  
-    -the second one is for reprocessing historical data in case of bugs.Data flow is a draw using a red arrow in the system design diagram. 
-
+    -the first one is for real-time architecture that provides metrics to customers 
+       with at most one hour delay.Green arrow used to display the data flow in the system design diagram.  
+    -the second one is for reprocessing historical data in case of bugs.
+    Data flow is a draw using a red arrow in the system design diagram. 
 ```
 ---
-## Real-time component  of architecture 
-```html
+## Real-time component of architecture 
+
 ####     
 - We start with getting   large number of request from  number  customer  (data producer ).The client  will connect to an HAProxy instance , which will use a reverse proxy to forward the request (XHR REQUEST) to one of available microservices  endpoints .
 - when  number of request  increase   autoscaling group  will launch new  docker container (microservices).
@@ -38,7 +38,8 @@ I will use to build this Solution, as well as the overall data flow processes.
 - Docker Containers (microservices)  responsible for  preprocessing and filtering  data and send to Apache Kafka (we can also use amazon kenisis data streams  ).
 - once  data reach  Apache Kafka,  we can use lambda function to damp the even to CloudWatch . 
 We can use cloudewatch to visualized and build real time dashboard 
-```
+
+
 [Back To The Top](#read-me-template)
 
 ---
