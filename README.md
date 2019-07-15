@@ -21,11 +21,9 @@ I will use to build this Solution, as well as the overall data flow processes.
 - Amazon CloudFront(for improving access speed)
 ---
 ```html 
-    I  will explain two architecture approaches :
-    -the first one is for real-time architecture that provides metrics to customers 
-       with at most one hour delay.Green arrow used to display the data flow in the system design diagram.  
-    -the second one is for reprocessing historical data in case of bugs.
-    Data flow is a draw using a red arrow in the system design diagram. 
+    I  will explain two architecture approaches 
+1. Real-time architecture that provides metrics to customers with at most one hour delay. Green arrow used to display the data flow in the system design diagram.  
+2. For reprocessing historical data in case of bugs. Data flow is a draw using a red arrow in the system design diagram. 
 ```
 ---
 ## Real-time component of architecture 
