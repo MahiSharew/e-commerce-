@@ -1,13 +1,5 @@
-# High level solution design 
+# see fucntionality  
 
-![High level solution design](https://www.youtube.com/watch?v=QW5QxnFxzps&list=PL1NMoMs0-jfyDCdaSugXem_X0BLmYesNf&index=2&t=478s)
-> High level solution design 
+!Visit https://www.youtube.com/watch?v=QW5QxnFxzps&list=PL1NMoMs0-jfyDCdaSugXem_X0BLmYesNf&index=2&t=478s
 
----
-## high level solution design
-
-
-
-
----
 
