@@ -6,16 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="OnlineShopping_Group3" />
+        <module name="OnlineShopping" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="OnlineShopping_Group3" target="1.8" />
+      <module name="OnlineShopping" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="OnlineShopping_Group3" options="-parameters" />
+      <module name="OnlineShopping" options="-parameters" />
     </option>
   </component>
 </project>
